@@ -98,24 +98,26 @@ make
 
 ## Run project
 
+The executable will be placed in the `build` directory. From within `build`, you can run the project as follows:
+
 ```
-cd star-route-planning.cpp/bin
-./star-route-planning.cpp -f ../map.osm 
+cd star-route-planning.cpp/build
+./OSM_A_star_search
 ```
 
 Or to specify a map file:
 ```
-./star-route-planning.cpp -f ../<your_osm_file.osm>
+./OSM_A_star_search -f ../<your_osm_file.osm>
 ```
 
 
 ## Testing
 
-The testing executable is also placed in the `bin` directory. From within `bin`, you can run the unit tests as follows:
+The testing executable is also placed in the `build` directory. From within `build`, you can run the unit tests as follows:
 
 ```bash
 # Run unit tests
-cd star-route-planning.cpp/bin/
+cd star-route-planning.cpp/build/
 ./test
 ```
 
