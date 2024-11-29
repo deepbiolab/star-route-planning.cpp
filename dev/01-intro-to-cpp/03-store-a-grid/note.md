@@ -2,7 +2,7 @@
 
 ## Primitive Variable Types
 
-C++ has several "primitive" variable types, which are things like `int`s (integers), `string`s, `float`s, and others. These should be similar to variable types in other programming languages we have used. 
+C++ has several "primitive" variable types, which are things like `int`s (integers), `string`s, `float`s, and others. These are similar to variable types in other programming languages. 
 
 **Note:** In the cells below, variables will be declared and values assigned. In C++, once a variable has been declared, it can not be redeclared in the same scope. This means that try to declare a variable twice in the same function, we will see an error.
 
