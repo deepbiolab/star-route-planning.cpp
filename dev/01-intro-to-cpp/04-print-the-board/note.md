@@ -28,7 +28,7 @@ $ g++ -std=c++17 ./code/printing_ex_1.cpp && ./a.out
 012
 ```
 
-If you tried to access the elements of `a` using an out-of-bound index, you might have noticed that there is no error or exception thrown.
+If we tried to access the elements of `a` using an out-of-bound index, you might have noticed that there is no error or exception thrown.
 ```cpp
 #include <iostream>
 #include <vector>
@@ -48,7 +48,7 @@ $ g++ -std=c++17 ./code/printing_ex_2.cpp && ./a.out
 0
 ```
 
-In this case, *the behavior is undefined*, so you can not depend on a certain value to be returned. Be careful about this! In a later part where we will learn about exceptions, we will discuss other ways to access vector elements that don't fail silently with out-of-range indices.
+In this case, *the behavior is undefined*, so we can not depend on a certain value to be returned. Be careful about this! In a later part where we will learn about exceptions, we will discuss other ways to access vector elements that don't fail silently with out-of-range indices.
 
 ### 2D Vector
 
@@ -132,7 +132,7 @@ $ g++ -std=c++17 ./code/printing_ex_5.cpp && ./a.out
 
 ## For Loops
 
-Just as in other languages you've worked with, C++ has both `for` loops and `while` loops.
+Just as in other languages we've worked with, C++ has both `for` loops and `while` loops.
 
 ### For Loop with an Index Variable
 
@@ -160,11 +160,11 @@ $ g++ -std=c++17 ./code/printing_ex_6.cpp && ./a.out
 
 ### The Increment Operator
 
-If you haven't seen the `++` operator before, this is the *post-increment operator*, and it is where the `++` in the name "C++" comes from. The operator increments the value of `i`. 
+If we haven't seen the `++` operator before, this is the *post-increment operator*, and it is where the `++` in the name "C++" comes from. The operator increments the value of `i`. 
 
 There is also a *pre-increment operator* which is used before a variable, as well as *pre* and *post decrement* operators: `--`. The difference between *pre* and *post* lies in what value is returned by the operator when it is used.
 
-You will only use the *post-increment operator* `i++` for now, but if you are curious, see below for an explanation of the code
+we will only use the *post-increment operator* `i++` for now, but if you are curious, see below for an explanation of the code
 
 ```cpp
 #include <iostream>
@@ -215,7 +215,7 @@ The value of i is: 1
 
 ### For Loop with a Container
 
-C++ offers several ways to iterate over containers. One way is to use an index-based loop as above. Another way is using a "range-based loop", which you will see frequently in lots of project. See the following code for an example of how this works:
+C++ offers several ways to iterate over containers. One way is to use an index-based loop as above. Another way is using a "range-based loop", which we will see frequently in lots of project. See the following code for an example of how this works:
 
 **1D Vector**
 
@@ -251,12 +251,11 @@ using std::cout;
 using std::vector;
 
 int main() {
-    // Add your code here.
     vector<vector<int>> b {{1, 2},
                            {3, 4},
                            {5, 6}};
 
-    // Write your double loop here.
+    // Write double loop here.
     for (auto v: b) {
         for (int i: v) {
             cout << i << " ";
@@ -278,7 +277,7 @@ $ g++ -std=c++17 ./code/for_loop_ex_3.cpp && ./a.out
 
 ## Functions
 
-You have seen a function before when you wrote `main()`! 
+we have seen a function before when we wrote `main()`! 
 
 When a function is declared and defined in a single C++ file, the basic syntax is as follows:
 
@@ -381,7 +380,7 @@ int main()
 {
     vector<int> v {1, 2, 3};
     
-    // Uncomment the following line to call your function:
+    // Uncomment the following line to call our function:
     cout << AdditionFunction(v) << "\n";
 }
 ```

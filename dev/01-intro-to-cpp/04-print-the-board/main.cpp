@@ -1,7 +1,7 @@
 /*
 1. Write a void PrintBoard function. The function should accept the board as an argument. 
    The function should print each row of the board with a newline "\n".
-2. When you have written your PrintBoard function, call it from within main() to print the board.
+2. When we have written our PrintBoard function, call it from within main() to print the board.
 3. result should look like:
     010000
     010000

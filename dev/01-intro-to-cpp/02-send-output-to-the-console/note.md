@@ -17,8 +17,8 @@ int main() {
 `using std::cout;`
 
 - Namespaces are a way in C++ to group identifiers (names) together. They provide context for identifiers to avoid naming collisions. The `std` namespace is the namespace used for the standard library.
-- The `using` command adds `std::cout` to the global scope of the program. This way you can use `cout` in your code instead of having to write `std::cout`.
-- `cout` is an output stream you will use to send output to the notebook or to a terminal, if you are using one.
+- The `using` command adds `std::cout` to the global scope of the program. This way we can use `cout` in our code instead of having to write `std::cout`.
+- `cout` is an output stream we will use to send output to a terminal.
 - Note that the second two lines in the example end with a semicolon `;`. Coding statements end with a semicolon in C++. The `#include` statement is a preprocessor command, so it doesn't need one.
 
 `cout << "Hello!" << "\n";`

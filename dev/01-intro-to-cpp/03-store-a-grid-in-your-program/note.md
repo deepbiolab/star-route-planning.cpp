@@ -2,9 +2,9 @@
 
 ## Primitive Variable Types
 
-C++ has several "primitive" variable types, which are things like `int`s (integers), `string`s, `float`s, and others. These should be similar to variable types in other programming languages you have used. 
+C++ has several "primitive" variable types, which are things like `int`s (integers), `string`s, `float`s, and others. These should be similar to variable types in other programming languages we have used. 
 
-**Note:** In the cells below, variables will be declared and values assigned. In C++, once a variable has been declared, it can not be redeclared in the same scope. This means that try to declare a variable twice in the same function, you will see an error.
+**Note:** In the cells below, variables will be declared and values assigned. In C++, once a variable has been declared, it can not be redeclared in the same scope. This means that try to declare a variable twice in the same function, we will see an error.
 
 ```cpp
 #include <iostream>
@@ -71,7 +71,7 @@ int main() {
 
 
 ### 2D Vectors
-Unfortunately, there isn't a built-in way to print vectors in C++ using `cout`. We will write own function to print vectors later. For now, you can see how vectors are created and stored. Below, you can see how to nest vectors to create 2D containers.
+Unfortunately, there isn't a built-in way to print vectors in C++ using `cout`. We will write function to print vectors later. For now, we can see how vectors are created and stored. Below, we can see how to nest vectors to create 2D containers.
 
 ```cpp
 #include <iostream>
@@ -103,14 +103,14 @@ this 2D Vectors should like this:
   - Single line comment:
 
     ```cpp
-    // You can use two forward slashes for single line comments.
+    // we can use two forward slashes for single line comments.
     ```
 
   - Multiple line comment:
 
     ```cpp
     /*
-    For longer comments, you can enclose the text with an opening
+    For longer comments, we can enclose the text with an opening
     slash-star and closing star-slash.
     */ 
     ```
@@ -139,7 +139,7 @@ $ g++ -std=c++17 ./code/auto_example.cpp && ./a.out
 Variables declared and initialized without explicitly stating type!
 ```
 
-It is helpful to manually declare the type of a variable if you want the variable type to be **clear** for reader of your code, or if you want to be explicit about the number **precision** being used; C++ has several number types with different levels of precision, and this precision might not be clear from the value being assigned.
+It is helpful to manually declare the type of a variable if we want the variable type to be **clear** for reader of our code, or if we want to be explicit about the number **precision** being used; C++ has several number types with different levels of precision, and this precision might not be clear from the value being assigned.
 
 ## Example: Store a Grid
 

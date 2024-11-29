@@ -21,14 +21,14 @@ int main()
     bool a = true;
 
     if (a) {
-      cout << "Hooray! You made it into the if statement!" << "\n";
+      cout << "Hooray! we made it into the if statement!" << "\n";
     }
 }
 ```
 
 ```bash
 $ g++ -std=c++17 ./code/if_example.cpp && ./a.out
-Hooray! You made it into the if statement!
+Hooray! we made it into the if statement!
 ```
 
 
@@ -184,7 +184,7 @@ The file stream has been created!
 
 That's it! To recap, there are essentially four steps to reading a file:
 1. `#include <fstream>`
-2. Create a `std::ifstream` object using the path to your file.
+2. Create a `std::ifstream` object using the path to our file.
 3. Evaluate the `std::ifstream` object as a `bool` to ensure that the stream creation did not fail.
 4. Use a `while` loop with `getline` to write file lines to a string.
 
