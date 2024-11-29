@@ -4,19 +4,19 @@
 
 In the previous exercises, we stored and printed the board as a `vector<vector<int>>`, where only two states were used for each cell: `0` and `1`. This is a great way to get started, but as the program becomes more complicated, there will be more than two possible states for each cell. Additionally, it would be nice to print the board in a way that clearly indicates open areas and obstacles, just as the board is printed above.
 
-To do this clearly in your code, we will learn about and use something called an `enum`. An `enum`, short for enumerator, is a way to define a type in C++ with values that are restricted to a fixed range. For an explanation and examples, see the cell below.
+To do this clearly in our code, we will learn about and use something called an `enum`. An `enum`, short for enumerator, is a way to define a type in C++ with values that are restricted to a fixed range. For an explanation and examples, see the cell below.
 
 ## Enums
 
-C++ allows you to define a custom type which has values limited to a specific range you list or "enumerate". This custom type is called an "enum".
+C++ allows we to define a custom type which has values limited to a specific range we list or "enumerate". This custom type is called an "enum".
 
-Suppose you were writing a program that stores information about each user's car, including the color. You could define a `Color` `enum` in your program, with a fixed range of all the acceptable values: 
+Suppose we were writing a program that stores information about each user's car, including the color. we could define a `Color` `enum` in our program, with a fixed range of all the acceptable values: 
 - `white`
 - `black`
 - `blue`
 - `red`
 
-This way, you can be sure that each color is restricted to the acceptable set of values.
+This way, we can be sure that each color is restricted to the acceptable set of values.
 
 Here is an example:
 
@@ -104,7 +104,7 @@ see implementation details in [`main.cpp`](./main.cpp) file.
 
 # Store the Board Using the State Enum
 
-Now that we have a way to print the `State` `enum` values, you will be able to modify your program to use `State` values in the board exclusively. To do this, we need to modify the return types and variable types in several places of the code. We have clearly marked these with a `Update` in each part of the code.
+Now that we have a way to print the `State` `enum` values, we will be able to modify our program to use `State` values in the board exclusively. To do this, we need to modify the return types and variable types in several places of the code. We have clearly marked these with a `Update` in each part of the code.
 
 After this exercise, we will begin coding the main A* search algorithm!
 
