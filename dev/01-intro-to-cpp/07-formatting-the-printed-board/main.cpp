@@ -3,7 +3,7 @@
 	"⛰️ " if the input equals a kObstacle
 	"0 " otherwise.
 2. Follow the Upate comments in the main file below, and update the program to store a board of State variables. 
-3. Call CellString on each object in the board before printing: CellString(board[i][j]).
+3. Call CellString on each object in the board before printing.
 
 Author: Tim Lin
 Date: November 30, 2024
