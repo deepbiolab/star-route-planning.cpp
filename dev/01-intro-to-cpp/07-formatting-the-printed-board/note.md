@@ -84,8 +84,9 @@ $ g++ -std=c++17 ./code/enum_ex_2.cpp && ./a.out
 Going up!
 ```
 
-## Example: Formatting the Printed Board
+## Example: Formatting and Store the Printed Board
 
+### Formatting
 ```
 0   ⛰️   0   0   0   0
 0   ⛰️   0   0   0   0
@@ -98,13 +99,10 @@ The board will eventually have more than two cell states as the program becomes 
 
 To accommodate more board states and facilitate print formatting, we have provided the `State` enum with enumerator values `kEmpty` and `kObstacle`. In this exercise, we will write a `CellString` function which converts each `State` to an appropriate string. In the next exercise, we will update the program to use the `enum` values and `CellString` function.
 
-see implementation details in [`main.cpp`](./main.cpp) file.
-
-
-
-# Store the Board Using the State Enum
-
+### Store
 Now that we have a way to print the `State` `enum` values, we will be able to modify our program to use `State` values in the board exclusively. To do this, we need to modify the return types and variable types in several places of the code. We have clearly marked these with a `Update` in each part of the code.
+
+see implementation details in [`main.cpp`](./main.cpp) file.
 
 After this exercise, we will begin coding the main A* search algorithm!
 
