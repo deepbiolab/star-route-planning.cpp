@@ -8,7 +8,7 @@ To do this clearly in our code, we will learn about and use something called an 
 
 ## Enums
 
-C++ allows we to define a custom type which has values limited to a specific range we list or "enumerate". This custom type is called an "enum".
+C++ allows us to define a custom type which has values limited to a specific range we list or "enumerate". This custom type is called an "enum".
 
 Suppose we were writing a program that stores information about each user's car, including the color. we could define a `Color` `enum` in our program, with a fixed range of all the acceptable values: 
 - `white`
