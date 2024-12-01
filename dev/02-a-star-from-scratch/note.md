@@ -215,7 +215,55 @@ see implementation detail in [here](./04-initialize-the-open-vector/main.cpp)
 
 
 
+### Create a Comparison Function: `Compare`
 
+Before we use the vector of open nodes to expand the A* search, we first need to sort the vector. Since the vector contains nodes `{x, y, g, h}`, and there is no standard library function to sort these types of vectors, we will begin by writing a function which compares two nodes to determine their order.
+
+This function is a helper function for the `CellSort()` function we will write in below file
+
+see implementation detail in [here](./05-create-a-comparison-function/main.cpp)
+
+
+
+### Write a While Loop for the A* Algorithm
+
+Now on to some of the core functionality of the A *search algorithm. A* search works by sorting the open list using the f-value, and using the node with the lowest f-value as the next node in the search. This process continues until the goal node has been found or the open list runs out of nodes to use for searching.
+
+In this part, we will implement the primary `while` loop in the algorithm which carries out the process described above
+
+```
+// TODO: while open vector is non empty {
+
+    // TODO: Sort the open list by calling `CellSort`. `CellSort` method will sort the open list in a descending order to have the node with the lowest heuristic value at the end of the vector.
+
+// TODO: When we call the `CellSort` method, we need to pass the memory address of the open vector like that: CellSort(&open) because the argument of the CellSort method is a pointer to a vector.
+
+    // TODO: get the last node from the open vector using the '.back()` method and save it to the variable `current_node`.
+
+    // TODO: remove the last node from the open vector using the`.pop_back()` method.
+
+    // TODO: Get the x and y values from the `current_node`,
+    // and set grid[x][y] to kPath.
+
+    // TODO: Check if you've reached the goal. If so, return grid.
+
+    // If we're not done, expand search to current node's neighbors. This step will be completed in a later part.
+    // ExpandNeighbors
+
+  //} 
+
+// TODO: End while loop
+```
+
+**Note:** We've included a header and a function to sort the open vector:
+
+- `#include <algorithm>`
+- `std::sort`
+- `CellSort`
+
+The `CellSort` function uses the `Compare` function we wrote previously to determine the sorting order. The `CellSort` function contains two operators that we haven't seen before: `*` and `->`. These operators have to do with C++ pointers, which we will cover this in the next sections. Don't worry about them for now!
+
+see implementation detail in [here](./06-write-a-while-loop-for-the-astar-algorithm/main.cpp)
 
 
 
