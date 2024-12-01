@@ -1,7 +1,10 @@
 {
 	"files.associations": {
 		"iosfwd": "cpp",
-		"fstream": "cpp"
+		"fstream": "cpp",
+		"vector": "cpp",
+		"iostream": "cpp",
+		"functional": "cpp"
 	},
 	"editor.emptySelectionClipboard": true,
 	"editor.copyWithSyntaxHighlighting": true,
