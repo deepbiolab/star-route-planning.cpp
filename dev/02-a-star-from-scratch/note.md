@@ -557,3 +557,4 @@ Now, A* search algorithm is fully functional. To wrap things up, there is one mo
 
 This is fantastic, but it isn't clear where the beginning and end of the path are. In this exercise, we will add a `🚦` for the beginning of the path, and a `🏁` for the end.
 
+see implementation detail in [here](./09-adding-a-start-and-end-to-the-board/main.cpp)
