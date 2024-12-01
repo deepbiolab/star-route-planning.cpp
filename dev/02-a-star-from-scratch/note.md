@@ -192,7 +192,21 @@ The code for the A* search algorithm has been broken down into the following fun
 
 
 
-### Adding Nodes to the Open Vector: `AddToOpen`
+## Walkthrough
+
+### Step 1: Starting A* Search: `Search`
+
+To get started with writing the A* search algorithm, we first add a `Search` function stub that accepts and returns the appropriate variable types.
+
+see implementation detail in [here](./01-starting-astar-search/main.cpp)
+
+###  Step 2: A* Heuristic: `Heuristic`
+
+We write a `Heuristic` function that will be used to guide the A* search. In general, any [admissible function](https://en.wikipedia.org/wiki/Admissible_heuristic) can be used for the heuristic, but for this project, you will write one that takes a pair of 2D coordinates on the grid and returns the [Manhattan Distance](https://en.wikipedia.org/wiki/Taxicab_geometry) from one coordinate to the other.
+
+see implementation detail in [here](./02-writing-the-astar-heuristic/main.cpp)
+
+### Step 3: Adding Nodes to the Open Vector: `AddToOpen`
 
 As you've seen from above explanation of `A *search`, the search algorithm keeps a list of potential board cells to search through. In this implementation of A*, we will refer to a board cell along with it's **`g`** and **`h`** values as a *node*. In other words, each node will consist of the following values which are needed for the `A* search` algorithm:
 
@@ -273,7 +287,7 @@ see implementation detail in [here](./03-adding-nodes-to-the-open-vector/main.cp
 
 
 
-### Initialize the Open Vector: `Search`
+### Step 4: Initialize the Open Vector: `Search`
 
 We will begin implementing the body of the `Search` function. In particular, we will take the arguments that are passed to the search function, get the `x`, `y`, `g`, and `h` values for the first node, and then add the first node to the open vector.
 
@@ -281,7 +295,7 @@ see implementation detail in [here](./04-initialize-the-open-vector/main.cpp)
 
 
 
-### Create a Comparison Function: `Compare`
+### Step 5: Create a Comparison Function: `Compare`
 
 Before we use the vector of open nodes to expand the A* search, we first need to sort the vector. Since the vector contains nodes `{x, y, g, h}`, and there is no standard library function to sort these types of vectors, we will begin by writing a function which compares two nodes to determine their order.
 
@@ -291,7 +305,7 @@ see implementation detail in [here](./05-create-a-comparison-function/main.cpp)
 
 
 
-### Write a While Loop for the A* Algorithm
+### Step 6: While Loop for the A* Algorithm: `Search`
 
 Now on to some of the core functionality of the A *search algorithm. A* search works by sorting the open list using the f-value, and using the node with the lowest f-value as the next node in the search. This process continues until the goal node has been found or the open list runs out of nodes to use for searching.
 
@@ -332,4 +346,214 @@ The `CellSort` function uses the `Compare` function we wrote previously to deter
 see implementation detail in [here](./06-write-a-while-loop-for-the-astar-algorithm/main.cpp)
 
 
+
+### Step 7: Check for Valid Neighbors: `CheckValidCell`
+
+The last part of the A\* algorithm to be implemented is the part that adds neighboring nodes to the open vector. In order to expand our A* search from the current node to neighboring nodes, we first need to check that neighboring grid cells are **not closed**, and that they are **not an obstacle**. In this part, we will write a function `CheckValidCell` that does exactly this.
+
+see implementation detail in [here](./07-check-for-valid-neighbors/main.cpp)
+
+
+
+### Extra: Constants
+
+In [*A Tour of C++*](http://www.stroustrup.com/Tour.html), Bjarne Stroustrup writes:
+
+> C++ supports two notions of immutability:
+>
+> - `const`: meaning roughly " I promise not to change this value."...The compiler enforces the promise made by `const`....
+> - `constexpr`: meaning roughly "to be evaluated at compile time." This is used primarily to specify constants...
+
+This example highlights how to use `const` to promise not to modify a variable, even though the variable can only be evaluated at run time.
+
+The example also show how to use `constexpr` to guarantee that a variable can be evaluated at compile time.
+
+```cpp
+#include <iostream>
+
+int main()
+{
+    int i;
+    std::cout << "Enter an integer value for i: ";
+    std::cin >> i;
+    const int j = i * 2;  // "j can only be evaluated at run time."
+                          // "But I promise not to change it after it is initialized."
+    
+    constexpr int k = 3;  // "k, in contrast, can be evaluated at compile time."
+    
+    std::cout << "j = " << j << "\n";
+    std::cout << "k = " << k << "\n";
+}
+```
+
+```bash
+$ g++ -std=c++17 ./code/const1.cpp && ./a.out
+Enter an integer value for i: 4
+j = 8
+k = 3
+```
+
+We can see another example([llama.cpp line at 4948-4949](https://github.com/ggerganov/llama.cpp/blob/master/src/llama.cpp)) in real application.
+
+```cpp
+constexpr size_t n_buffers = 4;
+constexpr size_t buffer_size = 1 * 1024 * 1024; // 1MB
+```
+
+If you want to change a `const` variable, you will get a error:
+
+```cpp
+int main()
+{
+    const int i = 2; // "I promise not to change this."
+    i++;             // "I just broke my promise."
+}
+```
+
+```bash
+$ g++ -std=c++17 ./code/const2.cpp && ./a.out
+./code/const2.cpp: In function ‘int main()’:
+./code/const2.cpp:4:6: error: increment of read-only variable ‘i’
+     i++;             // "I just broke my promise."
+      ^~
+```
+
+Similarly, the compiler will catch a `constexpr` variable that changes.
+
+```cpp
+int main()
+{
+    constexpr int i = 2;  // "i can be evaluated at compile time."
+    i++;                  // "But changing a constexpr variable triggers an error."
+}
+```
+
+```bash
+$ g++ -std=c++17 ./code/const3.cpp && ./a.out
+./code/const3.cpp: In function ‘int main()’:
+./code/const3.cpp:4:6: error: increment of read-only variable ‘i’
+     i++;                  // "But changing a constexpr variable triggers an error."
+      ^~
+```
+
+The major difference between `const` and `constexpr`, though, is that `constexpr` must be evaluated at compile time.
+
+The compiler will catch a `constexpr` variable that cannot be evaluated at compile time.
+
+```cpp
+#include <iostream>
+
+int main()
+{
+    int i;
+    std::cout << "Enter an integer value for i: ";
+    std::cin >> i;
+    constexpr int j = i * 2;  // "j can only be evaluated at run time."
+                              // "constexpr must be evaluated at compile time."
+                              // "So this code will produce a compilation error."
+}
+```
+
+```bash
+$ g++ -std=c++17 ./code/const4.cpp && ./a.out
+./code/const4.cpp: In function ‘int main()’:
+./code/const4.cpp:8:27: error: the value of ‘i’ is not usable in a constant expression
+     constexpr int j = i * 2;  // "j can only be evaluated at run time."
+                           ^
+./code/const4.cpp:5:9: note: ‘int i’ is not const
+     int i;
+         ^
+```
+
+A common usage of `const` is to guard against accidentally changing a variable, especially when it is **passed-by-reference** as a function argument.
+
+```cpp
+#include <iostream>
+#include <vector>
+
+int sum(const std::vector<int>& v)
+{
+    int sum = 0;
+    for(int i : v)
+        sum += i;
+    return sum;
+}
+
+int main()
+{
+    std::vector<int> v {0, 1, 2, 3, 4};
+    std::cout << sum(v) << "\n";
+}
+```
+
+```bash	
+$ g++ -std=c++17 ./code/const5.cpp && ./a.out
+10
+```
+
+**Summary:**
+
+- **`const`**: Best used for variables that should not be modified after initialization but whose values are **only known at runtime** (e.g., function parameters, **configuration** values).  
+- **`constexpr`**: Best used for values that must be evaluated at compile time, such as **array sizes, template parameters**, or **constants** used for optimization.
+- The distinction between `const` and `constexpr` is subtle. In general, though, `const` is much more common than `constexpr`.
+- When in doubt, use `const`, especially to **guard against accidentally modifying** a variable.
+
+
+
+### Step 8: Expand the A* Search to Neighbors
+
+We have now reached the final step of the A* algorithm! We now expand our A* search to neighboring nodes and add valid neighbors to the open vector. In this part, we will write an `ExpandNeighbors` function that takes care of this functionality.
+
+> pseudocode below:
+>
+> ```
+> // TODO: ExpandNeighbors {
+> 
+>   // TODO: Get current node's data.
+> 
+>   // TODO: Loop through current node's potential neighbors.
+> 
+>     // TODO: Check that the potential neighbor's x2 and y2 values are on the grid and not closed.
+> 
+>       // TODO: Increment g value, compute h value, and add neighbor to open list.
+> 
+> // } TODO: End function
+> ```
+>
+> **Note:** we have provided directional deltas in the form of a 2D [array](https://www.programiz.com/cpp-programming/arrays). An array is a C++ container much like a vector, although **without the ability to change size** after initialization. Arrays can be accessed and iterated over just as vectors.
+
+In the part, we can iterate over these `delta` values to check the neighbors in each direction:
+
+![image-20241201235559045](assets/image-20241201235559045.png)
+
+```
+// directional deltas
+const int delta[4][2]{{-1, 0}, {0, -1}, {1, 0}, {0, 1}};
+```
+
+see implementation detail in [here](./08-expand-the-astar-search-to-neighbors/main.cpp)
+
+
+
+### Extra: Arrays
+
+Arrays are a **lower level** data structure than vectors, and can be **slightly more efficient**, in terms of memory and element access. However, this efficiency comes with a price. Unlike vectors, which can be extended with more elements, **arrays have a fixed length**. Additionally, **arrays may require careful memory management**, depending how they are used.
+
+The example in the project code is a good use case for an array, as it was not intended to be changed during the execution of the program. However, a vector would have worked there as well.
+
+
+
+### Step 9: Adding a Start and End to the Board
+
+Now, A* search algorithm is fully functional. To wrap things up, there is one modification that can be made to the project to make the printout slightly clearer. At this point, our program should print the following:
+
+```
+🚗   ⛰️    0    0    0    0   
+🚗   ⛰️    0    0    0    0   
+🚗   ⛰️    0    0    0    0   
+🚗   ⛰️    0   🚗   🚗   🚗   
+🚗   🚗   🚗   🚗   ⛰️   🚗 
+```
+
+This is fantastic, but it isn't clear where the beginning and end of the path are. In this exercise, we will add a `🚦` for the beginning of the path, and a `🏁` for the end.
 

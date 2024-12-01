@@ -31,7 +31,7 @@ using std::abs;
 enum class State {kEmpty, kObstacle};
 
 
-// Write the Heuristic function by calculate the manhattan distance
+// TODO: Write the Heuristic function by calculate the manhattan distance
 int Heuristic(int x1, int y1, int x2, int y2) {
 	return abs(x2 - x1) + abs(y2 - y1);
 }

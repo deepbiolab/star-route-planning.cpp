@@ -76,9 +76,7 @@ int Heuristic(int x1, int y1, int x2, int y2) {
 }
 
 
-/** 
- * Add a node to the open list and mark it as open. 
- */
+// TODO: Add a node to the open list and mark it as open. 
 void AddToOpen(int x, int y, int g, int h, vector<vector<int>>& openlist, vector<vector<State>>& grid) {
 	openlist.push_back(vector<int> {x, y, g, h});
 	grid[x][y] = State::kClosed;

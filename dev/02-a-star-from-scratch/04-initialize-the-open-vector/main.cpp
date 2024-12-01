@@ -89,13 +89,13 @@ vector<vector<State>> Search(vector<vector<State>> grid, int init[2], int goal[2
 	// Create the vector of open nodes.
 	vector<vector<int>> open {};
 	
-	// Initialize the starting node.
+	// TODO: Initialize the starting node.
 	int x = init[0];
 	int y = init[1];
 	int g = 0;
 	int h = Heuristic(x, y, goal[0], goal[1]);
 	
-	// Use AddToOpen to add the starting node to the open vector.
+	// TODO: Use AddToOpen to add the starting node to the open vector.
 	AddToOpen(x, y, g, h, open, grid);
 
 	cout << "No path found!" << "\n";

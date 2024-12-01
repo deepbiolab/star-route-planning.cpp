@@ -4,7 +4,8 @@
 		"fstream": "cpp",
 		"vector": "cpp",
 		"iostream": "cpp",
-		"functional": "cpp"
+		"functional": "cpp",
+		"*.tcc": "cpp"
 	},
 	"editor.emptySelectionClipboard": true,
 	"editor.copyWithSyntaxHighlighting": true,

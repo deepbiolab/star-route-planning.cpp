@@ -29,7 +29,7 @@ using std::abs;
 enum class State {kEmpty, kObstacle};
 
 
-// Write the Search function stub here.
+// TODO: Write the Search function stub here.
 vector<vector<State>> Search(const vector<vector<State>>& grid, const int init[2], const int goal[2]) {
 	cout << "No path found!" << "\n";
 	return vector<vector<State>> {};

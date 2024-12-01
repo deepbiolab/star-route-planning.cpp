@@ -62,7 +62,7 @@ vector<vector<State>> ReadBoardFile(string path) {
 }
 
 
-// Help function to compare the f-value of two nodes here
+// TODO: Help function to compare the f-value of two nodes here
 bool Compare(vector<int> a, vector<int> b) {
 	int f1 = a[2] + a[3]; // f1 = g1 + h1
 	int f2 = b[2] + b[3]; // f2 = g2 + h2
