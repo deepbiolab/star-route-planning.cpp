@@ -207,6 +207,14 @@ see implementation detail in [here](./03-adding-nodes-to-the-open-vector/main.cp
 
 
 
+### Initialize the Open Vector: `Search`
+
+We will begin implementing the body of the `Search` function. In particular, we will take the arguments that are passed to the search function, get the `x`, `y`, `g`, and `h` values for the first node, and then add the first node to the open vector.
+
+see implementation detail in [here](./04-initialize-the-open-vector/main.cpp)
+
+
+
 
 
 
