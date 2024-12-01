@@ -192,3 +192,22 @@ The code for the A* search algorithm has been broken down into the following fun
 
 
 
+### Adding Nodes to the Open Vector: `AddToOpen`
+
+As you've seen from above explanation of `A *search`, the search algorithm keeps a list of potential board cells to search through. In this implementation of A*, we will refer to a board cell along with it's **`g`** and **`h`** values as a *node*. In other words, each node will consist of the following values which are needed for the `A* search` algorithm:
+
+- an **x** coordinate,
+- a **y** coordinate,
+- the **g** value (or *cost*) that has accumulated up to that cell,
+- the **h** value for the cell, given by the heuristic function.
+
+In the code, nodes will be implemented with the type `vector<int>`, and should have the form `{x, y, g, h}` for `int`s x, y, g, and h. Also, the open list will be implemented as a C++ vector (of type `vector<vector<int>>`). The goal in this exercise is to write a helper function for our A* Search which will add nodes to the open vector and mark them as visited in the grid.
+
+see implementation detail in [here](./03-adding-nodes-to-the-open-vector/main.cpp)
+
+
+
+
+
+
+
