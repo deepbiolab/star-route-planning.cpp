@@ -66,7 +66,9 @@ We have three element types in the XML map data above:
 
   A multi-polygon that describes an area with holes, where the outer and inner boundaries of the area are given by two ways.
 
-<img src="assets/image-20241203124253803.png" alt="image-20241203124253803" style="zoom: 25%;" />
+<div align="center">
+  <img src="assets/image-20241203140441182.png" alt="image-20241203124253803" style="zoom: 25%;" />
+</div>
 
 Basically, we can view these three concept like above illustrated figure:
 
@@ -89,19 +91,6 @@ This project use CMake as its build system and has been tested on [WSL Ubuntu 24
   # in Windows PowerShell
   wsl --install Ubuntu-24.04
   ```
-
-
-
-### Clone
-
-When cloning this project, be sure to use the `--recurse-submodules` flag. Using HTTPS:
-```
-git clone https://github.com/deepbiolab/star-route-planning.cpp.git --recurse-submodules
-```
-or with SSH:
-```
-git clone git@github.com:deepbiolab/star-route-planning.cpp.git --recurse-submodules
-```
 
 
 
@@ -170,6 +159,9 @@ sudo make install
 ### Compile
 
 At that point the project code should be compliable and run:
+
+> Note: When cloning this project, be sure to use the `--recurse-submodules` flag. Using HTTPS:
+
 ```
 # Compile project
 cd ~/projects/
@@ -198,7 +190,9 @@ Or to specify a map file:
 
 After run this program, and type initial point and goal point on a map, you can see the route plot on the map, like below:
 
-<img src="map.png" width="600" height="450" />
+<div align="center">
+  <img src="map.png" width="600" height="450" />
+</div>
 
 ## Test
 
