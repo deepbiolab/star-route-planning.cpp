@@ -67,7 +67,7 @@ We have three element types in the XML map data above:
   A multi-polygon that describes an area with holes, where the outer and inner boundaries of the area are given by two ways.
 
 <div align="center">
-  <img src="assets/image-20241203140441182.png" alt="image-20241203124253803" style="zoom: 25%;" />
+  <img src="assets/image-20241203141433830.png" alt="image-20241203141433830" style="zoom: 25%;" />
 </div>
 
 Basically, we can view these three concept like above illustrated figure:
@@ -191,7 +191,7 @@ Or to specify a map file:
 After run this program, and type initial point and goal point on a map, you can see the route plot on the map, like below:
 
 <div align="center">
-  <img src="map.png" width="600" height="450" />
+  <img src="assets/map.png" width="600" height="450" />
 </div>
 
 ## Test
