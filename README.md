@@ -234,5 +234,91 @@ After run unit tests, printed results should like this:
 [  PASSED  ] 7 tests.
 ```
 
+-----
+
+## Model Architecture
+
+<div align="center">
+  <img src="assets/image-20241203165431143.png" alt="image-20241203165431143" style="zoom: 25%;" />
+</div>
+
+### `RouteModel` class
+- **Purpose**: The `RouteModel` class serves as a data structure to hold all OpenStreetMap data in a convenient format and provides methods for interacting with the data.
+- **Key Features**:
+  - Contains a subclass `Node`, which represents a single point in the map.
+  - **Important Methods**:
+    - `FindNeighbors`: Finds all valid neighboring nodes for the current node.
+    - `Distance`: Calculates the distance between two nodes.
+
+### `RoutePlanner` class
+- **Purpose**: The `RoutePlanner` class implements the A* search algorithm and contains all methods required for pathfinding.
+
+- **Key Features**:
+  - **`AStarSearch` Method**:
+  
+    - Executes the A* search algorithm in a `while` loop until the open node list is empty.
+  
+    - For each iteration:
+      1. Selects the next node using`NextNode`: Sorts the open list and selects the next node to explore.
+  
+      2. Checks if the current node is the goal:
+  
+         - if yes, using`ConstructFinalPath` to build the final path from the start node to the goal node.
+  
+         - if no, using `AddNeighbors` to expand the current node by adding its neighbors to the open list.
+  
+  - **`AddNeighbors` Method**:
+  
+    - Calls `FindNeighbors` to populate the neighbors of the current node.
+    - For each neighbor:
+      1. Sets its parent to the current node.
+      2. Calculates:
+         - `g` value: The cost from the start node to the current node `+` the distance to the neighbor.
+         - `h` value: The heuristic value, which estimates the distance from the neighbor to the goal.
+      3. Adds the neighbor to the open list and marks it as visited.
+
+### `Render` class
+- Once the goal node is found, the `ConstructFinalPath` method reconstructs the path from the start node to the goal node by tracing back through each node's parent.
+- The main function then creates a render object to display the map and the final path using the results from the A* search.
+
+
+
+## File Structure
+
+In the repo, we have following six directories:
+
+- **`cmake`**: This directory contains some `.cmake` files that are needed for the project to find the necessary libraries.
+- **`src`**: The source code for the project is contained here.
+- **`test`**: This directory contains unit tests, implemented using the Google Test framework.
+- **`thirdparty`**: This directory contains third-party libraries that have been included with this project.
+- **`dev`**: This directory contains notes about basic knowledge used in this project.
+- **`assets`**: This directory contains image used in this readme file.
+
+Especially, in `src` folder, we have these files:
+
+- `main.cpp`: 
+  - Controls the flow of the program, accomplishing four primary tasks:
+    - A `ReadFile` function is created to read OSM data into the program.
+    - A `RouteModel` object is created to store the OSM data in usable data structures.
+    - A `RoutePlanner` object is created using the `RouteModel`. This planner will eventually carry out the A* search on the model data and store the search results in the `RouteModel`.
+    - The `RouteModel` data is rendered using the IO2D library.
+- `model.h` and `model.cpp`
+  - Come from the IO2D example code which are used to define the data structures and methods that read in and store OSM data. OSM data is stored in a `Model` class which contains nested structs for Nodes, Ways, Roads, and other OSM objects.
+- `route_model.h` and `route_model.cpp`: 
+  - Contain classes that extend the `Model` class and the `Node` struct from `model.h` and `model.cpp` using class inheritance. This extension adds additional methods and variables that are useful for implementing A* search.
+  - Specifically, the new `RouteModel::Node` class enables nodes to store the **attributes** following:
+    - `h_value`: the h-value
+    - `g_value`: the g-value
+    - `visited`: a "visited" flag
+    - `neighbors`: a vector of pointers to neighboring nodes
+  - In addition, there are **methods** for
+    - `FindNeighbors`: finding neighboring Node objects of a Node
+    - `distance`: getting the distance to other nodes
+    - `FindClosestNode`: finding the closest node to a given (x, y) coordinate pair
+- `route_planner.h` and `route_planner.cpp`: 
+  - Define the `RoutePlanner` class and methods for the `A *search`.
+- `render.h`and `render.cpp`
+  - Come from the IO2D example code. These take map data that is stored in a `Model` object and render that data as a map. In here, these files slightly modified to include three extra methods which **render the start point, end point, and path** from the A* search.
+
 
 
