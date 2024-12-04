@@ -291,7 +291,7 @@ In the repo, we have following six directories:
 - **`src`**: The source code for the project is contained here.
 - **`test`**: This directory contains unit tests, implemented using the Google Test framework.
 - **`thirdparty`**: This directory contains third-party libraries that have been included with this project.
-- **`dev`**: This directory contains notes about basic knowledge used in this project.
+- [**`dev`**](./dev): This directory contains notes about basic knowledge used in this project.
 - **`assets`**: This directory contains image used in this readme file.
 
 Especially, in `src` folder, we have these files:
